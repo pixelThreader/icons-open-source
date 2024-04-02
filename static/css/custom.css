@@ -1,0 +1,226 @@
+.h100p {
+    height: 100% !important;
+}
+
+.mh-4 {
+    min-height: 80% !important;
+}
+
+body {
+    height: 100vh !important;
+    width: 100%;
+}
+
+.scroll-access::-webkit-scrollbar {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 10px;
+}
+
+.scroll-access::-webkit-scrollbar-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 80%;
+    background: #636363;
+    border-radius: 10px;
+}
+
+.box {
+    height: 90px;
+    width: 90px;
+    padding: 2px;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+body[data-bs-theme="dark"] .box img {
+    height: 80%;
+    width: 80%;
+    padding: 2px;
+    transition: .5s;
+    filter: invert(1);
+}
+
+.box:hover {
+    box-shadow: 0 0 5px #fff;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+#search-ion-icon,
+#search-boot-icon {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.nav-link {
+    width: 110px;
+}
+
+.popup {
+    position: fixed;
+    height: 50px;
+    width: 500px;
+    background: #383a3c;
+    border-radius: 10px;
+    bottom: 20px;
+    left: 20px;
+    display: none;
+}
+
+.popup .code-container {
+    position: relative;
+    height: 100%;
+    width: 80%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup .code-container code {
+    position: relative;
+    left: 40px;
+    font-family: "Comfortaa";
+    border-radius: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.html-tag {
+    color: #74edb4;
+}
+
+.html-class {
+    color: #f2e063;
+}
+
+.html-value {
+    color: #fe3a00;
+}
+
+.popup .preview-container {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #fff;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    cursor: pointer;
+}
+
+.copied-indicator {
+    position: absolute;
+    left: 20px;
+    font-size: 30px;
+}
+
+#bstp-cdn-link {
+    position: relative !important;
+    cursor: pointer;
+}
+
+#bstp-cdn-copy-indicator {
+    position: relative;
+    height: 35px;
+    width: 35px;
+    border-radius: 10px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#codeOfIcon {
+    background: initial;
+    transition: .5s;
+}
+
+#codeOfIcon.active {
+    background: #494c4f !important;
+}
+
+#copyCodeSection {
+    border: 1px solid transparent !important;
+    transition: .5s;
+    border-radius: 10px;
+}
+
+#copyCodeSection.active {
+    border: 1px solid #00ff00 !important;
+}
+
+#backToTop {
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    background: #02ffcc4b;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+#backToTop svg polyline {
+    fill: none;
+    stroke: #1cc3cc;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 32px;
+    filter: drop-shadow(0 0 8px #1cc);
+}
+
+#backToTop svg path {
+    fill: none;
+    stroke: #1cc3cc;
+    stroke-miterlimit: 10;
+    stroke-width: 32px;
+    stroke-dasharray: 1300;
+    stroke-dashoffset: 0;
+    transition: .3s;
+}
+
+#backToTop:hover svg path {
+    fill: none;
+    stroke: #1cc3cc;
+    stroke-miterlimit: 10;
+    stroke-width: 32px;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 450;
+    transition: .5s;
+}
+
+.iconNameIs {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}

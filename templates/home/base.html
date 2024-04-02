@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home{% endblock title %} | Icons</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/utilites.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <link rel="stylesheet" href="/static/css/tooltip.css">
+    <link rel="stylesheet" href="/static/css/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/static/ionicons v2/css/ionicons.min.css">
+    {% block stylesheet %}{% endblock stylesheet %}
+    <link rel="shortcut icon" href="/static/brand/favicon.png" type="image/x-icon">
+    <script src="/static/js/jquery-3.7.0.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+</head>
+
+<body data-bs-theme="dark" class="overflow-hidden" onkeydown="getKeyAndMove(event, '#previous_page', '#next_page')">
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg bg-dark-subtle fixed-top border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <img src="/static/brand/favicon.png" width="40px" height="40px" class="d-inline-block align-top"
+                    alt="Bootstrap" loading="lazy">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link cup usn {% block home %}disabled{% endblock home %}" id="home-icons"
+                            style="width: fit-content;" onclick="ajax_load_page(this, '/')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cup usn {% block IIicon %}{% endblock IIicon %}" id="bootstrap-icons"
+                            style="width: fit-content;"
+                            onclick="ajax_load_page(this, '/ion-icons-v2/icons')">Ion-Icons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cup usn {% block BSicon %}{% endblock BSicon %}" id="bootstrap-icons"
+                            style="width: fit-content;"
+                            onclick="ajax_load_page(this, '/bootstrap-icons/icons')">Bootstrap-Icons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cup usn" style="width: fit-content;" href="/admin" target="_blank">Admin</a>
+                    </li>
+                </ul>
+
+                <!-- Search timer -->
+
+                <div class="h100p d-flex justify-content-center align-items-center me-2" id="CountContainer">
+                    <p class="m-0 p-0" style="color: #2d9005;">Searching Automatically starts in <span
+                            id="timeSearchCountDown">0</span>s</p>
+                </div>
+
+                <!-- form for Bootstrap -->
+                <form class="d-flex {% block forBS %}d-none{% endblock forBS %}" role="search">
+                    <div class="input-group">
+                        <input class="form-control bg-dark px-3 rounded-start-5" type="search" id="search-boot-icon"
+                            placeholder="Search Bootstrap-Icons..." aria-label="Search" style="width: 400px;">
+                        <button class="btn btn-outline-success rounded-end-5" type="button" id="search-icon-btn"
+                            fdprocessedid="kwgcr8"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+                <!-- form for Ion Icon -->
+                <form class="d-flex {% block forII %}d-none{% endblock forII %}" role="search">
+                    <div class="input-group">
+                        <input class="form-control bg-dark px-3 rounded-start-5" type="search" id="search-ion-icon"
+                            placeholder="Search Ion-Icons..." aria-label="Search" style="width: 400px;">
+                        <button class="btn btn-outline-info rounded-end-5" type="button" id="search-ion-icon-btn"
+                            fdprocessedid="kwgcx8"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Body Content -->
+    <section id="page-top" class="scroll-access py-5"
+        style="height: 100%; overflow: hidden; overflow-y: scroll;">
+        {% block body %}{% endblock body %}
+    </section>
+
+
+    <!-- Back To Top Button -->
+    <button id="backToTop" title="Go to Top" toWhere="#page-top" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 512 512">
+            <polyline points="352 296 256 200 160 296" />
+            <path d="M256,64C150,64,64,150,64,256s86,192,192,192,192-86,192-192S362,64,256,64Z" />
+        </svg>
+    </button>
+
+    <!-- Back to top -->
+    <script src="/static/js/jquery.easing.min.js"></script>
+    <script src="/static/js/scroll-smooth.js"></script>
+    <!-- Keyboard Shortcut -->
+    <script>
+        function getKeyAndMove(e, target1, target2) {
+            var key_code = e.which || e.keyCode;
+            switch (key_code) {
+                case 37: //left arrow key
+                    $(target1).click();
+                    break;
+                case 39: //right arrow key
+                    $(target2).click();
+                    break;
+            }
+        }
+    </script>
+    <!-- ajax page load -->
+    <script src="/static/js/ajax_page.js"></script>
+    <!-- For tooltips -->
+    <script src="/static/js/tooltip.js"></script>
+    <!-- Code -->
+    <script src="/static/js/genPara.js"></script>
+
+    {% block js %}{% endblock js %}
+</body>
+
+</html>

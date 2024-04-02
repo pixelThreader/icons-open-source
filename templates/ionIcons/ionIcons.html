@@ -1,0 +1,446 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Ion-Icons{% endblock title %}
+
+{% block home %}{% endblock home %}
+{% block BSicon %}{% endblock BSicon %}
+{% block IIicon %}disabled{% endblock IIicon %}
+{% block Iicon %}{% endblock Iicon %}
+{% block forBS %}d-none{% endblock forBS %}
+{% block forII %}{% endblock forII %}
+
+{% block stylesheet %}
+<style>
+    .iconBx {
+        width: 90px;
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .iconNameIs {
+        font-size: 12px;
+        width: 90px;
+        font-family: "poppins regular";
+        text-align: center;
+        color: antiquewhite;
+    }
+</style>
+
+{% endblock stylesheet %}
+
+{% block body %}
+<!-- heading -->
+<h1 class="mt-5 mb-3 text-center" style="color: #0cadff;"><span class="bg-light px-4 rounded-pill">Ion-Icons <i
+            class="icon ion-ionic" style="color: #3880ff;"></i></span></h1>
+<h6 class="text-center mb-4">To initilise these Webfonts add the below stylesheet to your project.</h6>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+
+    <p class="my-4 text-center" id="bstp-cdn-link" data-bs-toggle="tooltip" data-bs-placement="bottom"
+        data-bs-custom-class="light-tooltip" data-bs-title="Click to copy !!"
+        onclick="copy('Ion-Icon-Link'), copiedBsp()">
+        <code class="px-3 py-2 border rounded-2 bg-info-subtle">
+            <span class="text-secondary">&lt;</span><span class="html-tag">link</span> <span class="html-class">rel</span><span class="text-secondary">="</span><span class="html-value">stylesheet</span><span class="text-secondary">"</span> <span class="html-class">href</span><span class="text-secondary">="</span><span class="html-value">ionicons.min.css</span><span class="text-secondary">"<span class="text-secondary">&gt;</span>
+        </code>
+    </p>
+
+    <div class="border bg-info-subtle" id="bstp-cdn-copy-indicator" data-bs-toggle="tooltip" data-bs-placement="right"
+        data-bs-custom-class="light-tooltip" data-bs-title="Click to copy !!"
+        onclick="copy('Ion-Icon-Link'),copiedBsp()">
+        <i class="bi bi-file-earmark-code"></i>
+    </div>
+
+
+</div>
+<p class="text-center">Haven't Downloaded yet. Download files here.
+    <a href="/static/download/ion-icons-font.zip" class="link-info" style="font-size: 20px;" download>
+        <i class="icon ion-ios-download-outline"></i>
+    </a>
+</p>
+
+
+<!-- rule -->
+<hr class="mx-5 text-info my-5">
+
+<!-- icons -->
+
+<!-- Navs -->
+<nav class="container mb-0">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-normal-tab" data-bs-toggle="tab" data-bs-target="#nav-normal"
+            type="button" role="tab" aria-controls="nav-normal" aria-selected="true" fdprocessedid="7jhg6l">
+            Basic
+        </button>
+        <button class="nav-link" id="nav-android-tab" data-bs-toggle="tab" data-bs-target="#nav-android" type="button"
+            role="tab" aria-controls="nav-android" aria-selected="false" tabindex="-1">
+            Android
+        </button>
+        <button class="nav-link" id="nav-ios-tab" data-bs-toggle="tab" data-bs-target="#nav-ios" type="button"
+            role="tab" aria-controls="nav-ios" aria-selected="false" tabindex="-1">
+            iOS
+        </button>
+        <button class="nav-link" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button"
+            role="tab" aria-controls="nav-sharp" aria-selected="false" tabindex="-1">
+            All
+        </button>
+        <button class="nav-link text-info" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search"
+            type="button" role="tab" aria-controls="nav-search" aria-selected="false" tabindex="-1">
+            Search
+        </button>
+    </div>
+</nav>
+
+<!-- Different tabs for normal, fill and search -->
+<main class="tab-content" id="nav-tabContent">
+    <!-- Normal Tab -->
+    <div class="tab-pane fade container p-5 show active" id="nav-normal" role="tabpanel"
+        aria-labelledby="nav-normal-tab">
+        <div class=" d-flex flex-wrap gap-5 justify-content-center" style="width: 100%; height: 100%;"
+            id="normal_ion_icons">
+            <!-- normal & circled ion icons goes here -->
+            {% for icon in page_obj %}
+            {% if icon.category == "normal" or icon.category == "circled" %}
+            <div class="iconBx">
+                <div class="box border cup ppcode" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-bs-custom-class="light-tooltip" data-bs-title="{{ icon.name }}" icon-number="{{ icon.sno2 }}"
+                    svgIs="{{ icon.svgname }}" onclick="whatIsCode(this)">
+                    <img src="{{ icon.path }}" alt="ion-icon">
+                </div>
+                <span class="iconNameIs">
+                    {{ icon.name }}
+                </span>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Android Tab -->
+    <div class="tab-pane fade container p-5" id="nav-android" role="tabpanel" aria-labelledby="nav-android-tab">
+        <div class=" d-flex flex-wrap gap-5 justify-content-center" style="width: 100%; height: 100%;"
+            id="android_ion_icons">
+            <!-- android ion icons goes here -->
+            {% for icon in page_obj %}
+            {% if icon.category == "android" %}
+            <div class="iconBx">
+                <div class="box border cup ppcode" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-bs-custom-class="light-tooltip" data-bs-title="{{ icon.name }}" icon-number="{{ icon.sno2 }}"
+                    svgIs="{{ icon.svgname }}" onclick="whatIsCode(this)">
+                    <img src="{{ icon.path }}" alt="ion-icon">
+                </div>
+                <span class="iconNameIs">
+                    {{ icon.name }}
+                </span>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <!-- iOS Tab -->
+    <div class="tab-pane fade container p-5" id="nav-ios" role="tabpanel" aria-labelledby="nav-ios-tab">
+        <div class=" d-flex flex-wrap gap-5 justify-content-center" style="width: 100%; height: 100%;"
+            id="ios_ion_icons">
+            <!-- ios ion icons goes here -->
+            {% for icon in page_obj %}
+            {% if icon.category == "ios" %}
+            <div class="iconBx">
+                <div class="box border cup ppcode" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-bs-custom-class="light-tooltip" data-bs-title="{{ icon.name }}" icon-number="{{ icon.sno2 }}"
+                    svgIs="{{ icon.svgname }}" onclick="whatIsCode(this)">
+                    <img src="{{ icon.path }}" alt="ion-icon">
+                </div>
+                <span class="iconNameIs">
+                    {{ icon.name }}
+                </span>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <!-- All Tab -->
+    <div class="tab-pane fade container p-5" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+        <div class="d-flex flex-wrap gap-5 justify-content-center" style="width: 100%; height: 100%;"
+            id="all_ion_icons">
+            <!-- All ion icons goes here -->
+            {% for icon in page_obj %}
+            <div class="iconBx">
+                <div class="box border cup ppcode" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                    data-bs-custom-class="light-tooltip" data-bs-title="{{ icon.name }}" icon-number="{{ icon.sno2 }}"
+                    svgIs="{{ icon.svgname }}" onclick="whatIsCode(this)">
+                    <img src="{{ icon.path }}" alt="ion-icon">
+                </div>
+                <span class="iconNameIs">
+                    {{ icon.name }}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Search Tab -->
+    <div class="tab-pane fade container p-5" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab">
+        <div class="container-fluid text-center" id="FoundResults"></div>
+        <div class="d-flex flex-column flex-wrap gap-5" style="width: 100%; height: 100%;" id="search_ion_icons">
+            <!-- Search icons goes here -->
+            <h4 class="text-center text-secondary pt-5 text-center">
+                Nothing Searched.
+            </h4>
+            <h2 class="text-center text-secondary">¯\_(ツ)_/¯</h2>
+        </div>
+    </div>
+    <!-- Pagination -->
+    <nav class="my-5 container justify-content-center" style="display: flex;" id="pages_are">
+        <ul class="pagination pagination-sm flex-wrap">
+            <!-- Previous Page -->
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a href="" data-page="{{ page_obj.previous_page_number }}" class="page-link"
+                    id="previous_page">Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a href="" data-page="" class="page-link disabled" id="previous_page">Previous</a>
+            </li>
+            {% endif %}
+
+            <!-- Page numbers -->
+            {% for num in page_obj.paginator.page_range %}
+            <li class="page-item {% if num == page_obj.number %}active{% endif %}">
+                <a href="" data-page="{{ num }}" class="page-link page-number">{{ num }}</a>
+            </li>
+            {% endfor %}
+
+            <!-- Next Page -->
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a href="" data-page="{{ page_obj.next_page_number }}" class="page-link" id="next_page">Next</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a href="" data-page="" class="page-link disabled" id="next_page">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</main>
+<!-- content tabs ends -->
+
+<!-- Addons -->
+<div class="popup">
+    <div class="container-fluid p-0 m-0 d-flex justify-content-center align-items-center h-100" id="copyCodeSection">
+        <div class="code-container" onclick="copy('copyIconHere'), copied()" data-bs-toggle="tooltip"
+            data-bs-placement="bottom" data-bs-custom-class="light-tooltip" data-bs-title="Click to copy!">
+            <code class="px-2 py-2 codeOfIcon bg-dark" id="codeOfIcon">
+                <span class="text-secondary">&lt;</span><span class="html-tag">i</span> <span class="html-class">class</span><span class="text-secondary">="</span><span class="html-value">bi bi-file-earmark-person</span><span class="text-secondary">"</span><span class="text-secondary">&gt;</span><span class="text-secondary">&lt;</span><span class="text-secondary">/</span><span class="html-tag">i</span><span class="text-secondary">&gt;</span>
+            </code>
+        </div>
+        <div class="copied-indicator"><i class="bi bi-clipboard"></i></div>
+        <div class="preview-container text-light bsIcon" data-bs-toggle="tooltip" data-bs-placement="bottom"
+            data-bs-custom-class="light-tooltip" data-bs-title="Preview">
+            <i class="bi bi-file-earmark-person"></i>
+        </div>
+    </div>
+    <div class="close-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="light-tooltip"
+        data-bs-title="Close">
+        <i class="bi bi-x"></i>
+    </div>
+</div>
+<!-- End addons -->
+
+<!-- required hidden inputs -->
+<input type="hidden" id="copyIconHere" value="">
+<input type="hidden" id="Ion-Icon-Link" value="">
+<!-- just bstpcdn stuff -->
+<div class="d-none" id="bstpcdn">&lt;link rel="stylesheet" href="ionicons.min.css"&gt;</div>
+<script>
+    $("#Ion-Icon-Link").val($("#bstpcdn").text());
+</script>
+
+{% endblock body %}
+
+{% block js %}
+<!-- codeCopy -->
+<script src="/static/js/code-copy.js"></script>
+<!-- Search -->
+<script src="/static/js/searchII.js"></script>
+
+<!-- Pagination System AJAX -->
+<script>
+    $(document).ready(function () {
+        // Function to load paginated data asynchronously
+        function loadData(page) {
+            $.ajax({
+                url: '/ion-icons-v2/IIiconsPagination/?page=' + page,
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+                    var data = response.data;
+                    var allBody = $("#all_ion_icons");
+                    var normalBody = $("#normal_ion_icons");
+                    var androidBody = $("#android_ion_icons");
+                    var iosBody = $("#ios_ion_icons");
+                    allBody.empty();
+                    normalBody.empty();
+                    androidBody.empty();
+                    iosBody.empty();
+
+                    // declaring iterating variables
+                    row = "";
+                    normaldata = "";
+                    androiddata = "";
+                    iosdata = "";
+
+                    var isNormalAdded = false; // Flag variable to track if the element has already been added #fornormal
+                    var isAndroidAdded = false; // Flag variable to track if the element has already been added #forandroid
+                    var isIosAdded = false; // Flag variable to track if the element has already been added #forios
+
+                    // Generate table rows dynamically
+                    for (var i = 0; i < data.length; i++) {
+                        row +=
+                            `
+                            <div class="iconBx">
+                                <div class="box border cup ppcode mb-3" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    data-bs-custom-class="light-tooltip" data-bs-title="${data[i].name}" icon-number="1" svgIs="${data[i].svgname}"
+                                    onclick="whatIsCode(this)">
+                                    <img src="${data[i].path}" alt="Ion-icon"   class="mb-2">
+                                    </div>
+                                    <span class="iconNameIs">${data[i].name}</span>
+                            </div>
+                        `;
+                        if (data[i].category == "normal") {
+                            normaldata +=
+                                `
+                                <div class="iconBx">
+                                <div class="box border cup ppcode mb-3" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    data-bs-custom-class="light-tooltip" data-bs-title="${data[i].name}" icon-number="1" svgIs="${data[i].svgname}"
+                                    onclick="whatIsCode(this)">
+                                    <img src="${data[i].path}" alt="Ion-icon"   class="mb-2">
+                                    </div>
+                                    <span class="iconNameIs">${data[i].name}</span>
+                            </div>
+                            `;
+                            if (!isNormalAdded) {
+                                isNormalAdded = true; // Set the flag to true after adding the element
+                            }
+                        }
+                        if (data[i].category == "android") {
+                            androiddata +=
+                                `
+                                <div class="iconBx">
+                                <div class="box border cup ppcode mb-3" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    data-bs-custom-class="light-tooltip" data-bs-title="${data[i].name}" icon-number="1" svgIs="${data[i].svgname}"
+                                    onclick="whatIsCode(this)">
+                                    <img src="${data[i].path}" alt="Ion-icon"   class="mb-2">
+                                    </div>
+                                    <span class="iconNameIs">${data[i].name}</span>
+                            </div>
+                            `;
+                            if (!isAndroidAdded) {
+                                isAndroidAdded = true; // Set the flag to true after adding the element
+                            }
+                        }
+                        if (data[i].category == "ios") {
+                            iosdata +=
+                                `
+                                <div class="iconBx">
+                                <div class="box border cup ppcode mb-3" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                    data-bs-custom-class="light-tooltip" data-bs-title="${data[i].name}" icon-number="1" svgIs="${data[i].svgname}"
+                                    onclick="whatIsCode(this)">
+                                    <img src="${data[i].path}" alt="Ion-icon"   class="mb-2">
+                                    </div>
+                                    <span class="iconNameIs">${data[i].name}</span>
+                            </div>
+                            `;
+                            if (!isIosAdded) {
+                                isIosAdded = true; // Set the flag to true after adding the element
+                            }
+                        }
+
+                    }
+                    // Appendations
+                    allBody.append(row);
+                    if (isNormalAdded) {
+                        normalBody.append(normaldata);
+                    }
+                    if (isAndroidAdded) {
+                        androidBody.append(androiddata);
+                    }
+                    if (isIosAdded) {
+                        iosBody.append(iosdata);
+                    }
+
+                    // Update button states
+                    $(".page-item").removeClass("disabled");
+                    $(".page-item").removeClass("active");
+
+                    if (page === 1) {
+                        $("#previous_page").addClass("disabled");
+                    } else {
+                        $("#previous_page").removeClass("disabled");
+                    }
+
+                    var totalPages = parseInt("{{ data.paginator.num_pages }}");
+                    if (page === totalPages) {
+                        $("#next_page").addClass("disabled");
+                    } else {
+                        $("#next_page").removeClass("disabled");
+                    }
+
+                    $(".page-number[data-page='" + page + "']").parent().addClass("active");
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        $(".page-link.page-number").on("click", function (event) {
+            event.preventDefault();
+            var page = $(this).data("page");
+            loadData(page);
+
+            // Update previous button attributes
+            var previousPage = page - 1;
+            $("#previous_page").data("page", previousPage).attr("id", "previous_page").removeClass("disabled");
+        });
+
+        // Initially disable/enable previous and next buttons based on initial page
+        var initialPage = parseInt("{{ data.number }}");
+        var totalPages = parseInt("{{ data.paginator.num_pages }}");
+
+        if (initialPage === 1) {
+            $("#previous_page").addClass("disabled");
+        } else if (initialPage === totalPages) {
+            $("#next_page").addClass("disabled");
+        }
+
+        // Event listener for previous page link
+        $("#previous_page").on("click", function (event) {
+            event.preventDefault();
+            var currentPage = $(".page-item.active .page-link.page-number").data("page");
+            var previousPage = currentPage - 1;
+            loadData(previousPage);
+
+            // Update button states
+            $("#next_page").removeClass("disabled");
+            if (previousPage === 1) {
+                $(this).addClass("disabled");
+            }
+        });
+
+        // Event listener for next page link
+        $("#next_page").on("click", function (event) {
+            event.preventDefault();
+            var currentPage = $(".page-item.active .page-link.page-number").data("page");
+            var nextPage = currentPage + 1;
+            loadData(nextPage);
+
+            // Update button states
+            $("#previous_page").removeClass("disabled");
+            if (nextPage === totalPages) {
+                $(this).addClass("disabled");
+            }
+        });
+    });
+</script>
+
+{% endblock js %}

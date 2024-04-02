@@ -1,0 +1,9 @@
+.light-tooltip {
+    --bs-tooltip-bg: #ddd;
+}
+.success-tooltip {
+    --bs-tooltip-bg: #3ad129;
+}
+.info-tooltip {
+    --bs-tooltip-bg: #2aaae0;
+}
