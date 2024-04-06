@@ -1,8 +1,5 @@
 {
-    "builds":[{
-        "src":"IconPort/wsgi.py",
-        "use":"@vercel/python"
-    }],
+    "version": 2,
     "routes":[
         {
             "src":"/(.*)",
