@@ -8,7 +8,7 @@
       "src": "IconPort/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "20mb",  // Adjust if needed based on project size
+        "maxLambdaSize": "20mb",
         "runtime": "python3.9"
       }
     }
