@@ -1,13 +1,22 @@
 {
-    "builds":[{
-        "src":"IconPort/wsgi.py",
-        "use":"@vercel/python",
-        "config":{"maxLambdaSize":"15mb","runtime":"python3.9"}
-    }],
-    "routes":[
-        {
-            "src":"/(.*)",
-            "dest":"IconPort/wsgi.py"
-        }
-    ]
+  "builds": [
+    {
+      "src": "IconPort/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "IconPort/wsgi.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "IconPort/wsgi.py"
+    }
+  ]
 }
