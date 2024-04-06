@@ -1,18 +1,4 @@
 {
-  "builds": [
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "IconPort/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "80mb",
-        "runtime": "python3.9"
-      }
-    }
-  ],
   "routes": [
     {
       "src": "/static/(.*)",
