@@ -1,15 +1,23 @@
 {
   "builds": [
     {
+      "src": "build_files.sh",
+      "use": "@vercel/static"
+    },
+    {
       "src": "IconPort/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "90mb",
+        "maxLambdaSize": "20mb",  // Adjust if needed based on project size
         "runtime": "python3.9"
       }
     }
   ],
   "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
     {
       "src": "/api/(.*)",
       "dest": "IconPort/wsgi.py"
